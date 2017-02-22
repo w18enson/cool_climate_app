@@ -10,7 +10,7 @@ class Climate_model extends CI_Model {
     function convert_array($jsondata) {	
     	
     	// Prepare the variable
-    	$i = 1; $x = 0; $y = 0;
+    	$i = 0; $x = 0; $y = 0;
     	$results = array();
 
     	$rawdata = json_decode($jsondata, true);
