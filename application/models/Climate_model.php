@@ -11,8 +11,8 @@ class Climate_model extends CI_Model {
     	
     	// Prepare the variable
     	$i = 1; $x = 0; $y = 0;
+    	$results = array();
 
-    	
     	$rawdata = json_decode($jsondata, true);
     	foreach ($rawdata['list'] as $value) {
     		$results['temp'][$i]['date'] = date('Y-m-d', $value['dt']);
@@ -22,8 +22,8 @@ class Climate_model extends CI_Model {
     		$y = $y + $results['temp'][$i]['variance'];
     		$i++;
     	}
-    	$results['average'] = round($x / $i,2);
-    	$results['variance'] = round($y / $i,2);
+    	$results['average'] = round($x/$i,2);
+    	$results['variance'] = round($y/$i,2);
 
     	return $results;
 

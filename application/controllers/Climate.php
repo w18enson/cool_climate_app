@@ -14,24 +14,20 @@ class climate extends CI_Controller {
 
 		// Prepare data
 		$data['city_list'] = array('Jakarta','London','Tokyo');
-		$cnt = '5';
+		$cnt = '5'; // zero is 7 (api default)
 		$default_city = 'Jakarta';
+		$data['climate_data'] = null;
 
-		// Ambil data dari uri ketiga setelah base url
+		// Fetch the city
 		$this->uri->segment(3) ? $this->uri->segment(3) : 0;
 		$data['city'] = $this->uri->segment(3);	
 		if ($data['city'] == NULL) $data['city'] = $default_city;
 		
 		
-		// Generate data dari api dan simpan ke variabel
+		// Generate data from api and store it to variabel
 		$get_url = file_get_contents('http://api.openweathermap.org/data/2.5/forecast/daily?q=' . strtolower($data['city']) . '&mode=json&units=metric&cnt=' . $cnt . '&APPID=481e3bc28e5264e5607c2b65b449bfc1');
-
-		if($get_url) {
-			// Link give result
+		if($get_url) { // Check if it give results, we dont want model running null data
 			$data['climate_data'] = $this->climate_model->convert_array($get_url);
-		} else {
-			// Link give no result
-			$data['climate_data'] = null;
 		}
 
 		// Load the scenery !

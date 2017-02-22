@@ -8,7 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>" >
-
     <script src="<?php echo base_url("assets/js/jquery-3.1.1.min.js"); ?>"></script>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
@@ -55,9 +54,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</div>
 </body>
-<footer>
-	<script type='text/javascript'>
-
-	</Script>
-</footer>
 </html>
